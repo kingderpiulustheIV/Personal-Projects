@@ -18,52 +18,6 @@ A simple, elegant web application that converts URLs into QR codes with the abil
 3. **View your QR code** - it will appear below the input
 4. **Save or copy** the QR code using the buttons provided
 
-## Getting Started
-
-### Option 1: Open directly in browser
-Simply open `index.html` in your web browser - no server required!
-
-### Option 2: Local development server
-If you want to run a local server:
-
-```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Node.js (if you have it installed)
-npx serve .
-
-# Using PHP
-php -S localhost:8000
-```
-
-Then open `http://localhost:8000` in your browser.
-
-## Technical Details
-
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **QR Code Library**: QRCode.js (loaded via CDN)
-- **No backend required** - runs entirely in the browser
-- **Mobile responsive** design
-- **Error handling** for invalid URLs
-- **Accessibility features** included
-
-## Browser Compatibility
-
-- ✅ Chrome/Chromium (recommended)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Edge
-- ℹ️ Internet Explorer not supported
-
-## File Structure
-
-```
-├── index.html          # Main HTML page
-├── style.css           # CSS styling
-├── script.js           # JavaScript functionality
-└── README.md           # This file
-```
 
 ## Keyboard Shortcuts
 
