@@ -1,0 +1,357 @@
+<!-- 
+Sean Farrell
+9/15/2025
+
+Select Web Host Provider index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CPSC 3750 Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        /* CSS Variables for colors */
+        :root {
+            --primary: #500c6b;
+            --secondary: #e2380e;
+            --dark: #000000;
+            --light: #f5f6fa;
+        }
+
+        /* Reset CSS */s
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Container*/
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header of website*/
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: rgb(0, 0, 0);
+            padding: 60px 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* formatting for Header Text*/
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            animation: fadeInDown 1s ease;
+        }
+
+        /* formatting for subtitle*/
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        /* formatting for profile selection*/
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+        
+        /* formatting for profile text*/
+        .profile-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            animation: fadeInLeft 1s ease;
+        }
+        
+        /* formatting for profile image*/
+        .profile-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .profile-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        /* animation for profile image hover*/
+        .profile-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* formatting for corse info text*/
+        .course-info {
+            background-color: rgb(48, 48, 48);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 60px;
+            text-align: center;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        /* formatting for gallery*/
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        /* formatting for gallery items*/
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        /* animation for gallery item hover*/
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* formatting for gallery item image*/
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* formatting for gallery item caption*/
+        .gallery-caption {
+            padding: 15px;
+            background: rgb(48, 48, 48);
+        }
+
+        /* formatting for website footer*/
+        footer {
+            background-color: var(--dark);
+            color: rgb(48, 48, 48);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: rgba(48, 48, 48, 0.95);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .navbar li {
+            position: relative;
+        }
+        
+        .navbar a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .navbar a:hover {
+            color: var(--secondary);
+        }
+        
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar ul {
+                gap: 15px;
+            }
+            
+            .navbar a {
+                font-size: 1rem;
+            }
+        }
+        
+        /* animations for fade in*/
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive format for images */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+            }
+            
+            .profile-text, .profile-image {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<head>
+    <div id="navbar" class="navbar">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="/CPSC3750">Clemson Web Devlopment Projects</a></li>
+                    <li><a href="/QRGenerator.html">QR Generator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+ </head>
+<body>
+    <!-- body for Website title -->
+    <header>
+        <div class="container">
+            <h1>Hello, I'm Sean Farrell </span></h1>
+            <p class="subtitle">Welcome to my Personal website for Personal Projects and Clemson University Web Development Work</p>
+        </div>
+    </header>
+    
+
+    <!-- body for about me and and an image of myself content -->
+    <div class="container">
+        <section class="profile-section">
+            <div class="profile-text">
+                <h2>About Me</h2>
+                <p>I'm a Senior computer science student Graduating in December 2025. When I'm not coding, you can find me hiking, or on the beach, or at rock and metal concerts, or gaming.</p></p>
+            </div>
+            <div class="profile-image">
+                <img src="/Self.jpg" alt="Sean Farrell">
+            </div>
+        </section>
+
+        <!--body for my links to my github and linkedin-->
+        <section class="Links">
+        <h2>Links</h2>
+        <p>Personal GitHub: <a href="https://github.com/kingderpiulustheIV">https://github.com/kingderpiulustheIV</a></p>
+        <p>Clemson University GitHub: <a href="https://github.com/sfarrellClemosn">https://github.com/sfarrellClemosn</a></p>
+        </section>
+            
+    <!-- Body for website footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sean Farrell</p>
+        </div>
+    </footer>
+</body>
+</html>
