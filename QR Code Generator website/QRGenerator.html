@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL to QR Code Generator</title>
+    <link rel="stylesheet" href="Generator.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔗 URL to QR Code Generator</h1>
+            <p>Convert any URL into a QR code that you can display or save as an image</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="urlInput">Enter URL:</label>
+                    <input 
+                        type="url" 
+                        id="urlInput" 
+                        placeholder="https://example.com" 
+                        required
+                    >
+                </div>
+                
+                <div class="controls">
+                    <button id="generateBtn" class="btn btn-primary">
+                        Generate QR Code
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        Clear
+                    </button>
+                </div>
+            </div>
+
+            <div class="qr-section" id="qrSection" style="display: none;">
+                <h2>Your QR Code</h2>
+                <div class="qr-container">
+                    <div id="qrcode"></div>
+                </div>
+                
+                <div class="qr-info">
+                    <p><strong>URL:</strong> <span id="displayUrl"></span></p>
+                </div>
+                
+                <div class="download-section">
+                    <button id="downloadBtn" class="btn btn-success">
+                        💾 Save as Image (.PNG)
+                    </button>
+                    <button id="copyBtn" class="btn btn-info">
+                        📋 Copy QR Code Image
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built using QRServerAPI</p>
+        </footer>
+    </div>
+
+    <!-- Using only local QR code implementation -->
+    <script src="Generator.js"></script>
+</body>
+</html>

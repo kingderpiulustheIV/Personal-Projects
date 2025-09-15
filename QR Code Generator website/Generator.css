@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+main {
+    flex: 1;
+    background: #1e1e1e;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.input-section {
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #b0b0b0;
+}
+
+#urlInput {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+#urlInput:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+.btn-info {
+    background: #17a2b8;
+    color: white;
+}
+
+.btn-info:hover {
+    background: #138496;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(23, 162, 184, 0.4);
+}
+
+.qr-section {
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.qr-section h2 {
+    margin-bottom: 25px;
+    color: #d0d0d0;
+    font-size: 1.8rem;
+}
+
+.qr-container {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 2px dashed #444;
+}
+
+#qrcode {
+    display: inline-block;
+}
+
+#qrcode canvas,
+#qrcode img {
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.qr-info {
+    background: #333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    word-break: break-all;
+}
+
+.qr-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.download-section {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #888;
+    opacity: 0.8;
+}
+
+.error-message {
+    background: #2c1a1d;
+    color: #ff6b70;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #3e2427;
+}
+
+.success-message {
+    background: #1a2c1d;
+    color: #78d485;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #274127;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .download-section {
+        flex-direction: column;
+    }
+}
